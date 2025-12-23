@@ -1,0 +1,75 @@
+def add(x, y):
+    """Сложение"""
+    return x + y
+
+
+def subtract(x, y):
+    """Вычитание"""
+    return x - y
+
+
+def multiply(x, y):
+    """Умножение"""
+    return x * y
+
+
+def divide(x, y):
+    """Деление"""
+    if y == 0:
+        return "Ошибка: деление на ноль!"
+    return x / y
+
+
+def calculator():
+    """Основная функция калькулятора"""
+    print("Добро пожаловать в простой калькулятор!")
+    print("Доступные операции:")
+    print("1. Сложение (+)")
+    print("2. Вычитание (-)")
+    print("3. Умножение (*)")
+    print("4. Деление (/)")
+
+    while True:
+        try:
+            print("\nВыберите операцию:")
+            print("1 : Сложение")
+            print("2 : Вычитание")
+            print("3 : Умножение")
+            print("4 : Деление")
+            print("5 : Выход")
+
+            operation = input("Ваш выбор: ")
+            if operation == '5':
+                print("Выход из калькулятора...")
+                break
+            # Ввод данных от пользователя
+            num1 = float(input("\nВведите первое число: "))
+            num2 = float(input("Введите второе число: "))
+
+
+
+            # Выполнение операции в зависимости от выбора пользователя
+            if operation == '1':
+                result = add(num1, num2)
+                print(f"\nРезультат: {num1} + {num2} = {result}")
+            elif operation == '2':
+                result = subtract(num1, num2)
+                print(f"\nРезультат: {num1} - {num2} = {result}")
+            elif operation == '3':
+                result = multiply(num1, num2)
+                print(f"\nРезультат: {num1} * {num2} = {result}")
+            elif operation == '4':
+                result = divide(num1, num2)
+                print(f"\nРезультат: {num1} / {num2} = {result}")
+            else:
+                print("Неверная операция! Попробуйте снова.")
+
+        except ValueError:
+            print("Ошибка: пожалуйста, введите корректные числа!")
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+
+
+# Запуск калькулятора
+if __name__ == "__main__":
+    calculator()
